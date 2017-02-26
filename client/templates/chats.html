@@ -1,0 +1,22 @@
+<ion-view view-title="Chats">
+  <ion-nav-buttons side="right">
+    <button ng-click="chats.showNewChatModal()" class="button button-clear button-positive button-icon ion-ios-compose-outline"></button>
+  </ion-nav-buttons>
+
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="chat in chats.data | orderBy:'-lastMessage.timestamp'" class="item-chat item-remove-animate item-avatar item-icon-right" type="item-text-wrap" href="#/tab/chats/{{ chat._id }}">
+        <img ng-src="{{ chat | chatPicture }}">
+        <div>
+          <h2 class="user-name">{{ chat | chatName }}</h2>
+          <span class="last-message-timestamp">{{ chat.lastMessage.timestamp | calendar }}</span>
+        </div>
+        <p>{{ chat.lastMessage.text }}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+        <ion-option-button class="button-assertive" ng-click="chats.remove(chat)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

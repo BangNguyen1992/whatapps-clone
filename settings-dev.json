@@ -1,0 +1,7 @@
+// Dummy database for dev purpose
+{
+  "ACCOUNTS_PHONE": {
+    "ADMIN_NUMBERS": ["123456789", "987654321"],
+    "MASTER_CODE": "1234"
+  }
+}
